@@ -1,29 +1,30 @@
-import inventory.Asset;
-import inventory.AssetCategory;
-import inventory.Department;
-import inventory.Employee;
-import inventory.Maintenance;
-import inventory.Status;
+import inventory.Asset
+import inventory.AssetCategory
+import inventory.Department
+import inventory.Employee
+import inventory.Maintenance
+import inventory.Status
+import inventory.security.Role;
+import inventory.security.User;
+import inventory.security.UserRole;
 
 class BootStrap {
 
-    def init = { servletContext ->
-		
-		if (AssetCategory.count() == 0)
-		{
-			new AssetCategory(category: 'Phone', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'Computer', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'Printer', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'Fax', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'UPS', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'Monitor', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'Digital Camera', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'Scanner', details: '1' ).save(flush:true)
-			new AssetCategory(category: 'Speakers', details: '1' ).save(flush:true)
+	def init = { servletContext ->
+
+		if (AssetCategory.count() == 0) {
+			new AssetCategory(category: 'Phone').save(flush:true)
+			new AssetCategory(category: 'Computer').save(flush:true)
+			new AssetCategory(category: 'Printer' ).save(flush:true)
+			new AssetCategory(category: 'Fax' ).save(flush:true)
+			new AssetCategory(category: 'UPS' ).save(flush:true)
+			new AssetCategory(category: 'Monitor' ).save(flush:true)
+			new AssetCategory(category: 'Digital Camera' ).save(flush:true)
+			new AssetCategory(category: 'Scanner' ).save(flush:true)
+			new AssetCategory(category: 'Speakers' ).save(flush:true)
 		}
-		
-		if (Department.count() == 0)
-		{
+
+		if (Department.count() == 0) {
 			new Department(department: 'Accounts' ).save(flush:true)
 			new Department(department: 'Claims' ).save(flush:true)
 			new Department(department: 'Customer Service' ).save(flush:true)
@@ -50,9 +51,8 @@ class BootStrap {
 			new Department(department: 'San Pedro' ).save(flush:true)
 			new Department(department: 'Cashier' ).save(flush:true)
 		}
-		
-		if (Status.count() == 0 )
-		{
+
+		if (Status.count() == 0 ) {
 			new Status(status: 'Working - In Use' ).save(flush:true)
 			new Status(status: 'Working - Not In Use' ).save(flush:true)
 			new Status(status: 'Not Working' ).save(flush:true)
@@ -60,18 +60,17 @@ class BootStrap {
 			new Status(status: 'Unknown' ).save(flush:true)
 			new Status(status: 'No Longer Used' ).save(flush:true)
 		}
-		
-		//def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
 
-		//def admin = User.findByUsername('admin') ?: new User(username: 'admin', enabled: true, password: 'password').save(failOnError: true)
-		//if (!admin.authorities.contains(userRole)) {
-		//	UserRole.create admin, userRole, true
-		//}
-		
-		if (Asset.count() == 0)
-		{
-			Asset asset = new Asset();
-			asset.assetCategory = AssetCategory.findByCategory('Computer') ?: new AssetCategory(category: 'Computer', details: '1' ).save(flush:true)
+		def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
+
+		def admin = User.findByUsername('admin') ?: new User(username: 'admin', enabled: true, password: 'password').save(failOnError: true)
+		if (!admin.authorities.contains(userRole)) {
+			UserRole.create admin, userRole, true
+		}
+
+		if (Asset.count() == 0) {
+			Asset asset = new Asset()
+			asset.assetCategory = AssetCategory.findByCategory('Computer') ?: new AssetCategory(category: 'Computer' ).save(flush:true)
 			asset.details = 'Asset details'
 			asset.make = 'Dell'
 			asset.model = 'Optiplex 755'
@@ -86,7 +85,7 @@ class BootStrap {
 			asset.comments = 'comments'
 			asset.save()
 		}
-    }
-    def destroy = {
-    }
+	}
+	def destroy = {
+	}
 }

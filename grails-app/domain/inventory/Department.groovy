@@ -1,15 +1,12 @@
 package inventory
 
-class Department
-{
+class Department {
 	String department
 	boolean deleted
 
-	static constraints =
-	{ department(blank:false) }
+	static constraints = { department(blank:false) }
 
-	String toString()
-	{
+	String toString() {
 		return department
 	}
 }

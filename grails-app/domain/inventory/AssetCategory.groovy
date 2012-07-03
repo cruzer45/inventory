@@ -1,20 +1,15 @@
 package inventory
 
-class AssetCategory
-{
+class AssetCategory {
 	String category
-	String details
 	boolean deleted
 
-	static constraints =
-	{
+	static constraints = {
 		category(blank:false)
-		details(nullable:true)
 		deleted()
 	}
 
-	String toString()
-	{
+	String toString() {
 		return category
 	}
 }

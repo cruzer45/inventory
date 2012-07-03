@@ -1,15 +1,13 @@
 package inventory
 
-class Maintenance
-{
+class Maintenance {
 	Asset asset
 	Date date
 	String notes
 	String performedBy
 	double  cost
 
-	static constraints =
-	{
+	static constraints = {
 		asset(nullable:false)
 		date(blank:false, nulable:false)
 		notes()

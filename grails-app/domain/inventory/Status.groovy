@@ -1,15 +1,12 @@
 package inventory
 
-class Status
-{
+class Status {
 	String status
 	boolean deleted
 
-	static constraints =
-	{ status(blank:false) }
+	static constraints = { status(blank:false) }
 
-	String toString()
-	{
+	String toString() {
 		return status
 	}
 }

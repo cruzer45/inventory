@@ -1,7 +1,6 @@
 package inventory
 
-class Employee
-{
+class Employee {
 
 	String firstName
 	String lastName
@@ -10,8 +9,7 @@ class Employee
 	String workPhone
 	String officeLocation
 
-	static constraints =
-	{
+	static constraints = {
 		firstName(blank:false)
 		lastName(blank:false)
 		title(blank:false)
@@ -20,8 +18,7 @@ class Employee
 		officeLocation()
 	}
 
-	String toString()
-	{
+	String toString() {
 		return firstName + " " + lastName
 	}
 }

@@ -1,7 +1,6 @@
 package inventory
 
-class Asset
-{
+class Asset {
 	AssetCategory assetCategory
 	String details
 	String make
@@ -21,8 +20,7 @@ class Asset
 	Date nextScheduledMaintenance
 
 
-	static constraints =
-	{
+	static constraints = {
 		assetCategory(nullable:false, blank:false)
 		make(blank:false)
 		model(blank:false)
@@ -40,8 +38,7 @@ class Asset
 		comments(blank:true,maxSixe:1500)
 		nextScheduledMaintenance(nullable:true)
 	}
-	String tostring()
-	{
+	String tostring() {
 		return make + " Model " + model
 	}
 }
