@@ -1,2 +1,8 @@
 target/
-target-eclipse/ 
+target/*
+/target/*
+/target/
+/target-eclipse/
+stacktrace.log
+/.groovy/
+/.settings/
