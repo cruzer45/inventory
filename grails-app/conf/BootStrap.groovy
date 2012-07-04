@@ -83,7 +83,7 @@ class BootStrap {
 			asset.expectedLife = 5
 			asset.currentValue = 2000.00
 			asset.comments = 'comments'
-			asset.save()
+			asset.save(flush:true, failOnError:true)
 		}
 	}
 	def destroy = {

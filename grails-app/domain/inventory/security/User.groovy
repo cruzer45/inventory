@@ -1,5 +1,7 @@
 package inventory.security
 
+import inventory.security.Role
+
 class User {
 
 	transient springSecurityService
